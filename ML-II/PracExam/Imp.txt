@@ -1,0 +1,73 @@
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+
+iris = load_iris() will create an object 'iris'
+iris.data gives a numpy array
+X = pd.DataFrame(iris.data, columns=['X1', 'X2', 'X3', 'X4']) # Data without label Y
+y_numpy = pd.Series(iris.target)
+
+===============================
+z_hat => m x 1
+dy    => m x 1
+
+1 x m * m x 1
+1 x 1
+
+
+
+dy = -2*(y_true-y_pred)*y_pred*(1-y_pred)
+
+dw = alpha*dy*
+
+
+
+SGD MOMENTUM
+reset vb and 
+dw = -2*...*X
+vw = beta*vw + (1-beta)*dw
+w = w - alpha * vw
+
+NAG
+wlookahead = w - beta*vw
+vw = beta*vw + (1-beta)*dw
+w = wlookahead - alpha*dw
+
+
+Batch: 
+
+for epoch_num in 300 epochs:
+   for x,y in zip(x,y): # in one epoch
+		calculate yhat
+		calculate error
+		dw = calculate dw using y, yhat, x
+		db ...
+		w = w - alpha * []
+
+
+
+
+
+
+
+
+
+
+
+SGD with Momentum
+start with vb = 0
+dw = -2*ypred*(y-ypred)*(1-ypred)*x
+vw = beta*vw + (1-beta)*dw
+w = w - alpha*vw
+
+-----------------------
+Nestrov Accelerated GD
+
+w_look_ahead = w - beta*vw
+vw = w_look_ahead - alpha*dw
+
+
+
+
+
+
+
